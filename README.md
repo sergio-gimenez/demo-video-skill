@@ -41,12 +41,31 @@ flowchart LR
 
 ## Install
 
+**Ask your agent.** Paste this into Claude Code, Codex or OpenCode:
+
+```text
+Install the demo-video agent skill from https://github.com/sergio-gimenez/demo-video-skill:
+clone it to ~/.local/share/demo-video-skill, run its ./install.sh --link (it finds Claude Code,
+Codex and OpenCode on this machine), then go through the Requirements section of its README and
+tell me what is missing here before installing anything.
+```
+
+**With the [skills CLI](https://github.com/vercel-labs/skills):**
+
 ```bash
-git clone https://github.com/<you>/demo-video-skill
+npx skills add sergio-gimenez/demo-video-skill -g
+```
+
+**By hand:**
+
+```bash
+git clone https://github.com/sergio-gimenez/demo-video-skill
 cd demo-video-skill
 ./install.sh                  # every agent it finds; or: ./install.sh claude codex opencode
 ./install.sh --link claude    # symlink instead, so `git pull` updates the skill
 ```
+
+Restart the agent afterwards so it picks up the new skill.
 
 `demo-video/` is a standard `SKILL.md` folder. If you'd rather copy it by hand, these are the folders each
 agent reads:
