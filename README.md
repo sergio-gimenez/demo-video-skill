@@ -1,8 +1,8 @@
 # demo-video
 
-A Claude Code skill that records product demo videos of real software: a web app driven in a
-browser, commands typed in a terminal, an optional animated architecture intro. It also renders
-them, in 4K, on your machine.
+An agent skill for Claude Code, Codex and OpenCode that records product demo videos of real
+software: a web app driven in a browser, commands typed in a terminal, an optional animated
+architecture intro. It also renders them, in 4K, on your machine.
 
 ![Deploying an app to an edge zone on the ETSI OpenOP portal](media/deploy.gif)
 
@@ -43,10 +43,21 @@ flowchart LR
 
 ```bash
 git clone https://github.com/<you>/demo-video-skill
-cp -r demo-video-skill/demo-video ~/.claude/skills/
+cd demo-video-skill
+./install.sh                  # every agent it finds; or: ./install.sh claude codex opencode
+./install.sh --link claude    # symlink instead, so `git pull` updates the skill
 ```
 
-Then ask Claude Code for a demo video, e.g. *"record a demo video of signing up and creating a project in
+`demo-video/` is a standard `SKILL.md` folder. If you'd rather copy it by hand, these are the folders each
+agent reads:
+
+| Agent | User skills folder | Notes |
+|---|---|---|
+| Claude Code | `~/.claude/skills/` | |
+| Codex | `~/.agents/skills/` | `agents/openai.yaml` adds a display name and a default prompt; invoke with `$demo-video` or just ask |
+| OpenCode | `~/.config/opencode/skills/` | also reads `~/.claude/skills/` and `~/.agents/skills/`, so either install above works |
+
+Then ask your agent for a demo video, e.g. *"record a demo video of signing up and creating a project in
 our app, with a short architecture intro"*. The skill covers the workflow: storyboard, exploring the pages,
 recording shot by shot, checking contact sheets, composing, then a draft and a 4K render.
 

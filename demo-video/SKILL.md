@@ -145,6 +145,6 @@ the stage keeps take pixels so camera boxes and pointer positions are in take px
 - Every source clip needs dense keyframes (`-g 30` at 30 fps): agg-rendered GIF→MP4 clips had 8 s gaps and the
   4K render failed with `VIDEO_SOURCE_UNRENDERABLE` (term.py now encodes with `-g 30 -keyint_min 30`).
 - The default frame cache is `<tmpdir>/hyperframes-extract-cache-<uid>`; on many Linux setups /tmp is a small RAM-backed tmpfs
-  and filling it breaks every shell (Claude Code included). Always pass `--frames-cache-dir`.
+  and filling it breaks every shell, the coding agent's own included. Always pass `--frames-cache-dir`.
 - `ffmpeg -y` rewrites files in place: copy a take before re-recording if a render still uses it (compose
   hard-links media into `hf/media/`).

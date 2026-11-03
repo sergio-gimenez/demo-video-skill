@@ -1,0 +1,7 @@
+# Codex-only metadata (ignored by Claude Code and OpenCode).
+interface:
+  display_name: "Demo video"
+  short_description: "4K demo videos of real web apps and terminals: Playwright takes, typed shell clips, manim intro, HyperFrames render"
+  default_prompt: "Record a short demo video of this app: storyboard it first, then record, compose and render it in 4K."
+policy:
+  allow_implicit_invocation: true
